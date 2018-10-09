@@ -20,6 +20,8 @@ public class Algorithm2 {
     }
 
     public void allocate(List<List<Segment>> segmentCollections, DataCarrier dataCarrier){
+        System.out.println();
+        System.out.println("算法2开始分配：");
         for(List<Segment> segments : segmentCollections){
             boolean flag = workOnParticularSegments(segments,dataCarrier);
             if(flag){
@@ -141,7 +143,8 @@ public class Algorithm2 {
         }
 
         //动态规划计算完成
-        System.out.println("得到结果=====");
+        System.out.println();
+        System.out.println("算法2得到结果=====");
         List<Worker> list = dp[segment_number].getAllocation();
         System.out.println("参与者分配结果的长度="+list.size());
         for(Worker w : list){

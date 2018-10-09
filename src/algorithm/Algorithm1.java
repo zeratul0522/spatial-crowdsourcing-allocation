@@ -23,8 +23,10 @@ public class Algorithm1 {
     }
 
     public void allocate(List<List<Segment>> segmentCollections, DataCarrier dataCarrier){
+        System.out.println();
+        System.out.println("算法1开始分配：");
         for(int i = 0; i < segmentCollections.size();i++){
-
+            System.out.println("executed");
             boolean flag = workOnParticularSegments(segmentCollections.get(i),dataCarrier);
             System.out.println("处理第"+i+"条路径 "+flag);
             if(flag){
@@ -43,7 +45,7 @@ public class Algorithm1 {
         helper(allocation, extraMD, segments, 0, segments.size()-1,dataCarrier);
         if(allocation.size()==segments.size()){
             System.out.println("分配成功！");
-            System.out.println("分配方案长度为"+allocation.size()+", 最小额外移动距离为"+extraMD.get(0));
+            System.out.println("分配方案长度为"+allocation.size()+", 最短额外移动距离="+extraMD.get(0));
             for(Worker w : allocation){
                 System.out.print(w.getId()+" ");
             }
@@ -101,7 +103,8 @@ public class Algorithm1 {
         minExtraMovingDistance.clear();
         minExtraMovingDistance.add(t+localmin);
 
-        helper(new ArrayList<Worker>(allocation),new ArrayList<Double>(minExtraMovingDistance),segments,farthest+1,hi,dataCarrier);
+
+        helper(allocation, minExtraMovingDistance,segments,farthest+1,hi,dataCarrier);
 
     }
 

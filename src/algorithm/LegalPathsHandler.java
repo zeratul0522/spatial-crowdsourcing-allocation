@@ -19,22 +19,20 @@ import java.util.List;
 public class LegalPathsHandler {
     public static List<RouteAndTotalDistance> execute(DataCarrier dataCarrier) {
         long startTime=System.currentTimeMillis();
-        System.out.println("开始初步计算排序后的合法路径集合=================================当前优化目标："+ Parameters.goal +"=====================================");
+        //System.out.println("开始初步计算排序后的合法路径集合=================================当前优化目标："+ Parameters.goal +"=====================================");
         List<List<String>> list = ExecutivePathsFinder.execute();
         LegalPathsHandler legalPathsHandler = new LegalPathsHandler();
         List<RouteAndTotalDistance> routes = new ArrayList<RouteAndTotalDistance>();
         //TODO:此处选择根据不同的优化目标执行不同的排序方法
-        if(Parameters.goal== OptimalGoal.MIN_EXTRA_MOVING_DISTANCE){
             routes = legalPathsHandler.sortByMinTotalDistance(list,dataCarrier);
-        }
         for(RouteAndTotalDistance route : routes){
             List<String> tmp = route.getRoute();
-            System.out.print(tmp.toString());
-            System.out.print(route.getDistance());
-            System.out.println();
+            //System.out.print(tmp.toString());
+            //System.out.print(route.getDistance());
+            //System.out.println();
         }
         long endTime=System.currentTimeMillis();
-        System.out.println("计算完成，耗时: "+ (endTime-startTime)+"ms ==================================================================================================================");
+        //System.out.println("计算完成，耗时: "+ (endTime-startTime)+"ms ==================================================================================================================");
 
         return routes;
 

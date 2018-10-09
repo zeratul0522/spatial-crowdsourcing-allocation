@@ -112,6 +112,7 @@ public class GplotReader {
     public void setSeparator(int separator) {
         this.separator = separator;
     }
+
     public static void main(String[] args){
 
 //        GplotReader gplotReader = new GplotReader();

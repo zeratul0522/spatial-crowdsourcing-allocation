@@ -24,8 +24,8 @@ public class DataCarrier {
     }
 
     /*
-        1开头代表地点，2开头代表服务
-         */
+     1开头代表地点，2开头代表服务
+     */
     public DataCarrier(){
         Location a = new Location("A",11,480,974);
         locations.add(a);
